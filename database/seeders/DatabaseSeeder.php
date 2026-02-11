@@ -1,10 +1,14 @@
 <?php
 
 namespace Database\Seeders;
-
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+use Database\Seeders\Development\CategorySeeder;
+use Database\Seeders\Development\BrandSeeder;
+use Database\Seeders\Development\CarSeeder;
+use Database\Seeders\Development\UserSeeder;
+use Database\Seeders\Development\BookingSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            CategorySeeder::class,
+            BrandSeeder::class,
+            CarSeeder::class,
+            UserSeeder::class,
+            BookingSeeder::class,
         ]);
     }
 }
